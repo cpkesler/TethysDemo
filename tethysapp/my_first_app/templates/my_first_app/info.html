@@ -1,0 +1,15 @@
+{% extends "my_first_app/base.html" %}
+
+{% block app_navigation_items %}
+  <li><a href="{% url 'my_first_app:home' %}">Home</a></li>
+  <li class="active"><a href="{% url 'my_first_app:info' %}">Info</a></li>
+  <li><a href="{% url 'my_first_app:map' %}">Map</a></li>
+{% endblock %}
+
+{% block app_content %}
+  <h4>Information about My First App</h4>
+  <p>Creator: Christian Kesler & Savannah Keane</p>
+  <p>Date: May 3, 2016</p>
+  <p>Location: Provo, UT</p>
+{% endblock %}
+
