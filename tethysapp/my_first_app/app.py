@@ -6,12 +6,12 @@ class MyFirstApp(TethysAppBase):
     Tethys app class for my first app.
     """
 
-    name = 'my first app'
+    name = 'My First App'
     index = 'my_first_app:home'
-    icon = 'my_first_app/images/icon.gif'
+    icon = 'my_first_app/images/byu.png'
     package = 'my_first_app'
     root_url = 'my-first-app'
-    color = '#34495e'
+    color = '#990000'
     description = 'This is a demo app.'
     enable_feedback = False
     feedback_emails = []
