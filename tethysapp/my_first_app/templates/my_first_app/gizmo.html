@@ -1,0 +1,35 @@
+{% extends "my_first_app/base.html" %}
+{% load tethys_gizmos %}
+
+{% block app_navigation_items %}
+  <li><a href="{% url 'my_first_app:home' %}">Home</a></li>
+  <li><a href="{% url 'my_first_app:info' %}">Info</a></li>
+  <li><a href="{% url 'my_first_app:map' %}">Map</a></li>
+  <li class="active"><a href="{% url 'my_first_app:gizmo' %}">Gizmo</a></li>
+{% endblock %}
+
+{% block app_content %}
+<h1>Calculate the Flow</h1>
+<h3>Q = ciA </h3>
+<p>Use the sliders below to calculate the flow of water.</p>
+  <form id = "flow-form" action="{% url 'my_first_app:flow' %}" method="post">
+    {% csrf_token %}
+    {% gizmo range_slider slider1 %}
+    {% gizmo range_slider slider2 %}
+    {% gizmo range_slider slider3 %}
+  </form>
+  {% gizmo button single_button %}
+<br></br>
+<p>Use the text boxes below to calculate the flow of water.</p>
+  <form id = "flow1-form" action="{% url 'my_first_app:flow1' %}" method="post">
+    {% csrf_token %}
+    {% gizmo text_input text_input1 %}
+    {% gizmo text_input text_input2 %}
+    {% gizmo text_input text_input3 %}
+  </form>
+  {% gizmo button single_button1 %}
+{% endblock %}
+
+{% block app_actions %}
+  {% gizmo button submit_button %}
+{% endblock %}
