@@ -38,9 +38,6 @@ class MyFirstApp(TethysAppBase):
                     UrlMap(name='flow',
                            url='flow',
                            controller='my_first_app.controllers.flow'),
-                    UrlMap(name='flow1',
-                           url='flow1',
-                           controller='my_first_app.controllers.flow1'),
 
         )
 

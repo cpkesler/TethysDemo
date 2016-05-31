@@ -56,33 +56,13 @@ def flow(request):
     """
     Controller for the flow page.
     """
-    print request.POST
     if request.POST:
         runoff = float(request.POST['runoff'])
         intensity = float(request.POST['intensity'])
         area = float(request.POST['area'])
 
-
     flow = runoff * intensity * area
-    print flow
 
     context = {'runoff': runoff, 'intensity': intensity, 'area': area, 'flow': flow}
 
     return render(request, 'my_first_app/flow.html', context)
-
-def flow1(request):
-    """
-    Controller for the flow1 page.
-    """
-    print request.POST
-    if request.POST:
-        runoff1 = float(request.POST['runoff1'])
-        intensity1 = float(request.POST['intensity1'])
-        area1 = float(request.POST['area1'])
-
-    flow1 = runoff1 * intensity1 * area1
-    print flow1
-
-    context = {'runoff1': runoff1, 'intensity1': intensity1, 'area1': area1, 'flow1': flow1}
-
-    return render(request, 'my_first_app/flow1.html', context)
