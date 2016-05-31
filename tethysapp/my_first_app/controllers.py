@@ -31,50 +31,24 @@ def gizmo(request):
     """
     Controller for the gizmo page.
     """
+    text_input1 = TextInput(display_text='Runoff Coeficient, c',
+                       name='runoff',
+                       initial='0.8',)
 
-    from tethys_sdk.gizmos import RangeSlider
+    text_input2 = TextInput(display_text='Rainfall Intentsiy, i [in/hr]',
+                       name='intensity',
+                       initial='6',)
 
-    slider1 = RangeSlider(display_text='Runoff Coefficient, c',
-                          name='runoff',
-                          min=0,
-                          max=1,
-                          initial=0.4,
-                          step=0.01)
-    slider2 = RangeSlider(display_text='Rainfall Intensity, i [in/hr]',
-                          name='intensity',
-                          min=0,
-                          max=20,
-                          initial=4,
-                          step=0.5,)
-    slider3 = RangeSlider(display_text='Drainage Area, A [acre]',
-                          name='area',
-                          min=0,
-                          max=1000,
-                          initial=350,
-                          step=1,)
+    text_input3 = TextInput(display_text='Drainage Area, A [acre]',
+                       name='area',
+                       initial='160',)
+
     single_button = Button(display_text='Calculate Flow',
                            name='flow',
                            attributes='form=flow-form',
                            submit=True)
 
-    text_input1 = TextInput(display_text='Runoff Coeficient, c',
-                       name='runoff1',
-                       initial='0.8',)
-
-    text_input2 = TextInput(display_text='Rainfall Intentsiy, i [in/hr]',
-                       name='intensity1',
-                       initial='6',)
-
-    text_input3 = TextInput(display_text='Drainage Area, A [acre]',
-                       name='area1',
-                       initial='160',)
-
-    single_button1 = Button(display_text='Calculate Flow',
-                           name='flow1',
-                           attributes='form=flow1-form',
-                           submit=True)
-
-    context = {'slider1': slider1, 'slider2': slider2, 'slider3': slider3, 'single_button': single_button, 'text_input1': text_input1, 'text_input2': text_input2, 'text_input3': text_input3, 'single_button1': single_button1}
+    context = {'text_input1': text_input1, 'text_input2': text_input2, 'text_input3': text_input3, 'single_button': single_button}
 
     return render(request, 'my_first_app/gizmo.html', context)
 
